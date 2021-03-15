@@ -1,0 +1,13 @@
+syntax = "proto3"
+    message Money{
+  //The 3 letter's of currency code is defined in ISO 4217.
+        string currency_code = 1;
+  //The whole units of amount
+        int64 units = 2;
+        //Number of nano(10^-9) units of the amount.
+        //Value must be between -999,999,999 and +999,999,999 inclusive.
+        //If units is 0, nanos can be positive, zero or negative.
+        //If units is negative nanos must be negative or 0.
+        //
+        int32 nanos = 3;
+    }

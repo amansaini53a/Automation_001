@@ -1,0 +1,38 @@
+//The syntax for this file is proto 3
+syntax = "proto3"
+    import  "Proto/date.proto";
+
+    /* Person is used to identify user's
+       acroos the system
+     */
+    message Person{
+      int32 age = 1;          //The age as of the person creation
+      string first_name = 2;  //The first name as documented in the signup form
+      string last_name = 3;
+      bytes image = 4;        //Small picture represents a small .jpg file
+      bool is_profile_verified = 5;
+      float height = 6;       //Height of person in cms
+      //List of phone numbers is optional to provide at sign up.
+      repeated string phone_numbers = 7;
+      //We currently consider only 3 eye colour.
+      enum EyeColour {
+          UNKNOWN_EYE_COLOUR = 0;
+          EYE_GREEN = 1;
+          EYE_BROWN = 2;
+          EYE_BLUE = 3;
+      }
+      //It's an enum defined above.
+      EyeColour eye_colour = 8;
+      Date birthday = 9;
+//***************Nested Message******************//
+      //We define the type Address within person (full name is Person.address)
+      message Address{
+        string address_line_1 = 1;
+        string address_line_2 = 2;
+        string zip_code = 3;
+        string city = 4;
+        string country = 5;
+      }
+      //Multiple addresses
+      repeated Address addresses = 10;
+    }

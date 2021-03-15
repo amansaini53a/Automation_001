@@ -1,0 +1,7 @@
+syntax = "proto3"
+    message LatLng{
+  //The Latitude in degrees. Range must be [-90.0 to + 90.0]
+        double latitude = 1;
+  //The Longitude in degrees.Range must be [-180.0 to +180.0]
+        double longitude = 2;
+    }
